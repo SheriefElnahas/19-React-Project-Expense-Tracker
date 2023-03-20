@@ -1,0 +1,40 @@
+.Signup {
+  max-width: 300px;
+  margin: 7rem auto;
+}
+
+.Signup h2 {
+  margin-bottom: 30px;
+}
+
+.Signup p {
+  margin-top: 25px;
+}
+.Signup label {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.Signup input {
+  width: 100%;
+  border: 1px solid rgb(64, 64, 64);
+  border-radius: 3px;
+  padding: 0.3rem 0.4rem;
+}
+
+.Signup button {
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: #333;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.Signup button:hover {
+  background: #000;
+  color: #fff;
+}
