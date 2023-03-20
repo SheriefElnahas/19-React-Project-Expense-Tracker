@@ -1,8 +1,11 @@
-import React from 'react'
+import Navbar from "./components/Navbar"
 
 function App() {
   return (
-    <h1>Expense Tracker</h1>
+    <main>
+      <Navbar />
+      <h1>Home</h1>
+    </main>
   )
 }
 
