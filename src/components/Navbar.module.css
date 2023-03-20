@@ -21,6 +21,7 @@
 .Navbar-list {
   display:flex;
   list-style: none;
+  align-items: center;
 }
 
 .Navbar-link {
@@ -32,4 +33,23 @@
 }
 .Navbar-link:hover {
   color:#fff;
+}
+
+.Navbar button {
+  /* background: transparent; */
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  margin-left: 20px;
+
+}
+
+.Navbar button:hover {
+  background: #40a398;
+  color: #fff;
 }
