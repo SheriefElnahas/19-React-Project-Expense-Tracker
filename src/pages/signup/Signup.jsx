@@ -1,9 +1,11 @@
 import styles from './Signup.module.css';
 
 import { useState } from 'react';
+import { useSignup } from '../../hooks/useSignup';
 
 function Signup() {
   const [signupData, setSignupData] = useState({ email: '', password: '', displayName: '' });
+  const {error, isPending, signup} = useSignup();
 
   const handleChange = (e) => {
     setSignupData((prevSignupData) => {
@@ -16,7 +18,7 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(signupData.email, signupData.password, signupData.displayName);
+    signup(signupData.email, signupData.password, signupData.displayName);
 
     setSignupData({ email: '', password: '', displayName: '' });
   };
@@ -37,8 +39,10 @@ function Signup() {
         <input type="name" id="name" name="displayName" value={signupData.displayName} onChange={handleChange} />
       </p>
       <p>
-        <button>Signup</button>
+        {!isPending && <button>Signup</button>}
+        {isPending && <button disabled>Loading</button>}
       </p>
+      {error && <p>{error}</p>}
     </form>
   );
 }
