@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useAuthContext } from './useAuthContext';
 
 // Firebase Imports
 import { auth } from '../firebase/firebase.config';
@@ -8,15 +9,18 @@ export const useSignup = () => {
   const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
+  const { dispatch } = useAuthContext();
+
 
   const signup = async (email, password, displayName) => {
     setError(null);
     setIsPending(true);
 
+    
     try {
       //signup user - This create a usewr with an email and password but it does not allow us to pass the display name
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      console.log('user sign up', res.user);
+
 
       if (!res) {
         throw new Error('Could not complete signup');
@@ -26,6 +30,12 @@ export const useSignup = () => {
       updateProfile(auth.currentUser, {
         displayName,
       });
+
+      // Dispatch Login Action
+      dispatch({
+        type: 'LOGIN',
+        payload: res.user
+      })
 
       if (!isCancelled) {
         setIsPending(false);
