@@ -9,3 +9,36 @@
   text-align: center;
   font-size:2.5rem;
 }
+
+.Home .banner-container {
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.banner-container div:first-child {
+  display:flex;
+  justify-content: space-between;
+}
+
+.banner-container div:first-child button {
+  padding:0.5rem 1.5rem;
+  background:#074EF2;
+  color:#fff;
+  border:none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.banner-container div:first-child button:hover {
+  background:#0947d7;
+}
+.Home .Banner {
+  background:#25cbcb;
+  padding:1.5rem 1.5rem;
+  margin:1rem;
+  max-width:400px;
+  border-radius:5px;
+  box-shadow:2px 4px 8px rgba(0,0,0,0.1);
+  font-weight: 300;
+
+}

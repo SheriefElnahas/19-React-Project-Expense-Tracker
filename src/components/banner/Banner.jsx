@@ -1,10 +1,11 @@
 import styles from './Banner.module.css';
 
-function Banner() {
+function Banner({children}) {
+
   return (
-    <div className={styles.Banner}>
-      <p>Budget: $2000</p>
-    </div>
+    <>
+      {children}
+    </>
   )
 }
 
