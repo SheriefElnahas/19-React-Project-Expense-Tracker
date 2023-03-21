@@ -1,9 +1,11 @@
 import styles from './Login.module.css';
 
 import { useState } from 'react';
+import { useLogin } from '../../hooks/useLogin';
 
 function Login() {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
+  const { login, isPending, error } = useLogin();
 
   const handleChange = (e) => {
     setLoginData((prevLoginData) => {
@@ -17,7 +19,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(loginData.email, loginData.password);
+    login(loginData.email, loginData.password);
     setLoginData({ email: '', password: '' });
   };
   return (
@@ -32,8 +34,10 @@ function Login() {
         <input type="password" id="password" name="password" value={loginData.password} onChange={handleChange} />
       </p>
       <p>
-        <button>Login</button>
+        {!isPending && <button>Login</button>}
+        {isPending && <button disabled>Loading</button>}
       </p>
+      {error && <p>{error}</p>}
     </form>
   );
 }
