@@ -23,6 +23,9 @@ function Login() {
     setLoginData({ email: '', password: '' });
   };
   return (
+    <section>
+
+
     <form onSubmit={handleSubmit} className={styles.Login}>
       <h2>Login</h2>
       <p>
@@ -39,6 +42,7 @@ function Login() {
       </p>
       {error && <p>{error}</p>}
     </form>
+    </section>
   );
 }
 

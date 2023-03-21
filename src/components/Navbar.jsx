@@ -8,6 +8,9 @@ function Navbar() {
   const { user } = useAuthContext();
   
   return (
+    <header>
+
+
     <nav className={styles.Navbar}>
       <div className={styles['Navbar-container']}>
         <h2 className={styles['Navbar-heading']}>Expensify</h2>
@@ -41,6 +44,7 @@ function Navbar() {
       </div>
       </div>
     </nav>
+    </header>
   )
 }
 

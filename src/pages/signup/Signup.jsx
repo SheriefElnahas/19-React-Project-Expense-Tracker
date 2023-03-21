@@ -24,6 +24,9 @@ function Signup() {
   };
 
   return (
+    <section>
+
+
     <form onSubmit={handleSubmit} className={styles.Signup}>
       <h2>Signup</h2>
       <p>
@@ -44,6 +47,7 @@ function Signup() {
       </p>
       {error && <p>{error}</p>}
     </form>
+    </section>
   );
 }
 
