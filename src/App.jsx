@@ -1,10 +1,13 @@
-import {Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-import Navbar from "./components/Navbar"
-import Login from "./pages/login/Login"
+import Navbar from './components/Navbar';
+import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 
+import { useAuthContext } from './hooks/useAuthContext';
+
 function App() {
+  const { authIsReady } = useAuthContext();
   return (
     <main>
       <Navbar />
@@ -14,7 +17,7 @@ function App() {
       </Routes>
       {/* <h1>Home</h1> */}
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

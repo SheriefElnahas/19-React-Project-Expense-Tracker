@@ -1,18 +1,41 @@
 import styles from './Navbar.module.css';
 import {Link} from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 function Navbar() {
   const { logout } = useLogout();
+  const { user } = useAuthContext();
+  
   return (
     <nav className={styles.Navbar}>
       <div className={styles['Navbar-container']}>
         <h2 className={styles['Navbar-heading']}>Expensify</h2>
       <div>
         <ul className={styles['Navbar-list']}>
-          <li className="Navbar-item"><Link to="signup" className={styles['Navbar-link']}>Signup</Link></li>
-          <li className="Navbar-item"><Link to="login" className={styles['Navbar-link']}>Login</Link></li>
-          <button onClick={logout}>Logout</button>
+        {!user && (
+              <>
+                <li className={styles['Navbar-item']}>
+                  <Link className={styles['Navbar-link']} to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li className={styles['Navbar-item']}>
+                  <Link className={styles['Navbar-link']} to="/signup">
+                    Signup
+                  </Link>
+
+                </li>
+              </>
+            )}
+            {user && (
+              <>
+                <li>Hello, {user.displayName}</li>
+                <li>
+                  <button onClick={logout}>Logout</button>
+                </li>
+              </>
+            )}
         </ul>
         
       </div>
